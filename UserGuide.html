@@ -251,7 +251,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 <p>Only the name is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Name will be matched from the start of the name. e.g <code>Han</code> will match to <code>Hans</code></p>
 </li>
 <li>
 <p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
@@ -271,7 +271,7 @@ Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
 <p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+Returns any person having names starting with <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 <li>
 <p><code>f Nam</code><br>
@@ -547,7 +547,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-12 13:42:29 +00:00
+Last updated 2017-10-12 13:42:57 +00:00
 </div>
 </div>
 </body>
