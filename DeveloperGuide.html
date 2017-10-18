@@ -45,8 +45,9 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
-<li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#configuration">3.3. Configuration</a></li>
+<li><a href="#searching-mechanism">3.2. Searching mechanism</a></li>
+<li><a href="#logging">3.3. Logging</a></li>
+<li><a href="#configuration">3.4. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -766,7 +767,40 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
+<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">3.2. Searching mechanism</a></h3>
+<div class="paragraph">
+<p>Here, searching entails the autocomplete function, finding mechanism and suggesting mechanism.
+The search mechanism is done with user&#8217;s usability in mind and is fully implemented such that it is most intuitive to use for the users.</p>
+</div>
+<div class="sect3">
+<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">3.2.1. Autocomplete function</a></h4>
+<div class="paragraph">
+<p>The autocomplete function mimics the behaviour of familiar Unix-based command lines. The autocomplete function is managed by a class <code>AutocompleteManager</code>,
+whose function <code>attemptAutocomplete</code> searches for the string starting with the specified characters in the string array provided and will return the
+string if a unique match is present.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">3.2.2. Finding mechanism</a></h4>
+<div class="paragraph">
+<p>The find function currently matches name in the address book if those name starts with the find keyword. Whenever the a find event is triggered, the address book
+will filter the address book based on the predicate provided, the mechanism of which is specified by <code>NameContainsKeywordsPredicate</code> class.
+This class overrides the <code>test</code> function to filter the list based on <code>containsWordsStartWithString</code>, a <code>StringUtil</code> method which returns whether
+a string starts with another string. For example, 'Dav' will return 'Dave'<br>
+Looking forward, the finding mechanism will be more flexible, by implementing fuzzy search mechanism which allows returning
+close matches. For example, 'Dve' will return 'Dave' or 'Dove'.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">3.2.3. Suggesting mechanism</a></h4>
+<div class="paragraph">
+<p>The suggestion mechanism will be a hybrid of the above two functionalities, in which suggestion, whether commands or a match string inside the addressbook
+will be shown as the user type commands. This has not been implemented but will be a UI-heavy component that anchor on the fuzzy search logic.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -804,7 +838,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.3. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2456,7 +2490,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-17 06:37:01 +00:00
+Last updated 2017-10-18 13:48:42 +00:00
 </div>
 </div>
 </body>
