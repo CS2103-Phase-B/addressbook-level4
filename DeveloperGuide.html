@@ -45,9 +45,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
-<li><a href="#searching-mechanism">3.2. Searching mechanism</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#configuration">3.4. Configuration</a></li>
+<li><a href="#grouping-mechanism">3.2. Grouping mechanism</a></li>
+<li><a href="#searching-mechanism">3.3. Searching mechanism</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -767,13 +768,69 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">3.2. Searching mechanism</a></h3>
+<h3 id="grouping-mechanism"><a class="link" href="#grouping-mechanism">3.2. Grouping mechanism</a></h3>
+<div class="sect3">
+<h4 id="groups-vs-tags"><a class="link" href="#groups-vs-tags">3.2.1. Groups vs Tags</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Conceptually different. Groups are long-term, standalone constructs, while Tags are individual Person&#8217;s attributes</p>
+</li>
+<li>
+<p>Groups have attributes (number of members)</p>
+</li>
+<li>
+<p>Groups can be listed together with their members</p>
+</li>
+<li>
+<p>Adding and removal from a Group can be done in batches (multiple Persons at a time)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Big picture. Note that AddressBook further updates the Person&#8217;s references to the groups.
+<code>filtered</code> denotes the Person extracted by applying the index filtering.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GroupSequenceDiagram.png" alt="GroupSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Storing information about group members<br>
+<strong>Alternative 1 (current choice):</strong> Members store list of groups they belong to<br>
+<strong>Pros:</strong> Code related to the tags (filtering, storing) can be reused<br>
+<strong>Cons:</strong> Finding the members of specific group more computationally expensive.<br>
+ Information about groups has to be added wherever Person is used (add, edit commands). Some code duplicated<br>
+<strong>Alternative 2:</strong> Group stores list of members<br>
+<strong>Pros:</strong> Easier to understand. Easier to retrieve all the members of a group<br>
+<strong>Cons:</strong> Even though some mechanisms are similar to ones related to Tag, new classes are needed to handle them.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Managing groups<br>
+<strong>Alternative 1 (current choice):</strong> Groups can be managed (members added, removed) only using group-specific commands<br>
+<strong>Pros:</strong> Avoids cluttering other commands (add, edit).
+ Separates the concepts of Person and Group, also Tag and Group.<br>
+<strong>Cons:</strong> Adding a Person to a group at the moment of the Person&#8217;s creation is impossible<br>
+<strong>Alternative 2:</strong> Groups are accessed and managed just as Tags, when managing a Person<br>
+<strong>Pros:</strong> Avoids creation of a new command.<br>
+<strong>Cons:</strong> Adds another attribute to a Person increasing its complexity.
+Not intuitive to manage group by managing Person.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">3.3. Searching mechanism</a></h3>
 <div class="paragraph">
 <p>Here, searching entails the autocomplete function, finding mechanism and suggesting mechanism.
 The search mechanism is done with user&#8217;s usability in mind and is fully implemented such that it is most intuitive to use for the users.</p>
 </div>
 <div class="sect3">
-<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">3.2.1. Autocomplete function</a></h4>
+<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">3.3.1. Autocomplete function</a></h4>
 <div class="paragraph">
 <p>The autocomplete function mimics the behaviour of familiar Unix-based command lines. The autocomplete function is managed by a class <code>AutocompleteManager</code>,
 whose function <code>attemptAutocomplete</code> searches for the string starting with the specified characters in the string array provided and will return the
@@ -781,7 +838,7 @@ string if a unique match is present.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">3.2.2. Finding mechanism</a></h4>
+<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">3.3.2. Finding mechanism</a></h4>
 <div class="paragraph">
 <p>The find function currently matches name in the address book if those name starts with the find keyword. Whenever the a find event is triggered, the address book
 will filter the address book based on the predicate provided, the mechanism of which is specified by <code>NameContainsKeywordsPredicate</code> class.
@@ -792,7 +849,7 @@ close matches. For example, 'Dve' will return 'Dave' or 'Dove'.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">3.2.3. Suggesting mechanism</a></h4>
+<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">3.3.3. Suggesting mechanism</a></h4>
 <div class="paragraph">
 <p>The suggestion mechanism will be a hybrid of the above two functionalities, in which suggestion, whether commands or a match string inside the addressbook
 will be shown as the user type commands. This has not been implemented but will be a UI-heavy component that anchor on the fuzzy search logic.</p>
@@ -800,7 +857,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -838,7 +895,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.4. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2490,7 +2547,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 13:49:32 +00:00
+Last updated 2017-10-18 14:12:12 +00:00
 </div>
 </div>
 </body>
