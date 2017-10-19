@@ -47,8 +47,9 @@
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
 <li><a href="#grouping-mechanism">3.2. Grouping mechanism</a></li>
 <li><a href="#searching-mechanism">3.3. Searching mechanism</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#configuration">3.5. Configuration</a></li>
+<li><a href="#find-tag">3.4. Find Tag</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -857,7 +858,71 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="find-tag"><a class="link" href="#find-tag">3.4. Find Tag</a></h3>
+<div class="paragraph">
+<p>The <code>FindTagCommand</code> allows the user to locate persons in the addressbook by their tag instead of their names.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Able to view contacts by similar attributes such as 'colleagues' or 'friends'.</p>
+</li>
+<li>
+<p>Utilises a <code>TagContainsKeywordsPredicate</code> class that extends the <code>Predicate</code> class.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allows the <code>FindTag</code> feature to function with more than 1 keyword at a time easily.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindTagSequenceDiagram.png" alt="FindTagSequenceDiagram" width="1200">
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Searching for tags <br>
+<strong>Alternative 1 (current choice):</strong> Search through the <code>ReadOnlyPerson</code> class<br>
+<strong>Pros:</strong> Code related to the findin through names can be reused<br>
+<strong>Cons:</strong> Requires more computational power to go through all existing persons in the list.<br>
+<strong>Alternative 2:</strong> Allow Tag class to store <code>ReadOnlyPerson</code> class as parameter<br>
+<strong>Pros:</strong> Easier to retrieve all contacts under a certain <code>Tag</code><br>
+<strong>Cons:</strong> Potentially cleaner, but limits future improvements (combining all <code>Find</code> features).</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> how <code>FindTag</code> executes (AND logic vs OR logic)<br>
+<strong>Alternative 1 (current choice):</strong> Utilising OR logic<br>
+<strong>Pros:</strong> More flexible usag eallows user to view contacts across various tags ,<br>
+          user does not have to utilise more than 1 <code>FindTag</code> command to view various contacts.<br>
+<strong>Cons:</strong> Looking for specific contacts that have more than 1 tag becomes impossible.<br>
+<strong>Alternative 2:</strong> Utilising AND logic <br>
+<strong>Pros:</strong> Allows finding of specific contacts with more than 1 tag.<br>
+<strong>Cons:</strong> Limits flexibility for power users that wish to a various contacts across more than 1 tag.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="future-improvements"><a class="link" href="#future-improvements">3.4.2. Future Improvements</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Combining all <code>Find</code> features into 1 <code>Filter</code> feautre to allow filtering across all parameters of <code>Person</code> class.</p>
+</li>
+<li>
+<p>Introducing <code>and</code> and <code>or</code> commands within <code>Filter</code> to reap benefits of both AND and OR logic.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -895,7 +960,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.5. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2547,7 +2612,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 14:12:24 +00:00
+Last updated 2017-10-19 14:01:00 +00:00
 </div>
 </div>
 </body>
