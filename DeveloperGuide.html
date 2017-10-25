@@ -48,8 +48,9 @@
 <li><a href="#grouping-mechanism">3.2. Grouping mechanism</a></li>
 <li><a href="#searching-mechanism">3.3. Searching mechanism</a></li>
 <li><a href="#find-tag">3.4. Find Tag</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#configuration">3.6. Configuration</a></li>
+<li><a href="#filter-feature-implementation">3.5. Filter feature implementation</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -783,9 +784,6 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <li>
 <p>Groups can be listed together with their members</p>
 </li>
-<li>
-<p>Adding and removal from a Group can be done in batches (multiple Persons at a time)</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -881,7 +879,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindTagSequenceDiagram.png" alt="FindTagSequenceDiagram" width="1200">
+<img src="images/FindTagSequenceDiagram.png" alt="FindTagSequenceDiagram" width="800">
 </div>
 </div>
 <div class="sect3">
@@ -904,7 +902,7 @@ will be shown as the user type commands. This has not been implemented but will 
 <strong>Cons:</strong> Looking for specific contacts that have more than 1 tag becomes impossible.<br>
 <strong>Alternative 2:</strong> Utilising AND logic <br>
 <strong>Pros:</strong> Allows finding of specific contacts with more than 1 tag.<br>
-<strong>Cons:</strong> Limits flexibility for power users that wish to a various contacts across more than 1 tag.</p>
+<strong>Cons:</strong> Limits flexibility for power users that wish to view various contacts across more than 1 tag.</p>
 </div>
 </div>
 <div class="sect3">
@@ -912,7 +910,7 @@ will be shown as the user type commands. This has not been implemented but will 
 <div class="ulist">
 <ul>
 <li>
-<p>Combining all <code>Find</code> features into 1 <code>Filter</code> feautre to allow filtering across all parameters of <code>Person</code> class.</p>
+<p>Combining all <code>Find</code> features into 1 <code>Filter</code> feature to allow filtering across all parameters of <code>Person</code> class.</p>
 </li>
 <li>
 <p>Introducing <code>and</code> and <code>or</code> commands within <code>Filter</code> to reap benefits of both AND and OR logic.</p>
@@ -922,7 +920,63 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="filter-feature-implementation"><a class="link" href="#filter-feature-implementation">3.5. Filter feature implementation</a></h3>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> and <code>FilterAllCommand</code> serve very similar functions to the <code>FindCommand</code> and <code>FindTagCommand</code>.
+However, they differ in the way that they allow more flexcibility to the user in terms of filtering contacts
+because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All parameters are included in the seraching implementation</p>
+</li>
+<li>
+<p>Users are able to utilise OR or AND logic to make the searcha s narrow or wide as desired.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This eliminatest the drawbacks of previous <code>FindCommand</code> and <code>FindTagCommand</code> implementations.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sequence diagram can be inferred from <code>FindTagCommand</code> sequence diagram above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterCommand.png" alt="FilterCommand" width="800">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterAllDiagram.png" alt="FilterAllDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>AS shown above, <code>FilterCommand</code> will output a list of contacts that match any of the given keywords, while <code>FilterAllCommand</code>
+will output only contacts that match all keywords.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> how filter implementation is executed (AND logic vs OR logic)<br>
+<strong>Alternative 1 (<code>FilterCommand</code>):</strong> Utilising OR logic<br>
+<strong>Pros:</strong> More flexible usage allows user to view contacts across various parameters ,<br>
+          user does not have to utilise more than 1 command to view various contacts.<br>
+          user is able to searcha wide array of contacts with one command
+<strong>Cons:</strong> Looking for specific contacts by using more than one keyword is not possible.<br>
+<strong>Alternative 2 (<code>FilterAllCommand</code>):</strong> Utilising AND logic <br>
+<strong>Pros:</strong> Allows finding of specific contacts with more than 1 tag.<br>
+<strong>Cons:</strong> Limits flexibility for power users that wish to view various contacts across more than 1 tag.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -960,7 +1014,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.6. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2612,7 +2666,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-25 13:19:50 +00:00
+Last updated 2017-10-25 13:32:28 +00:00
 </div>
 </div>
 </body>
