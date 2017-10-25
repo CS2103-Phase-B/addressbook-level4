@@ -37,20 +37,21 @@
 <li><a href="#locating-persons-by-all-parameter-code-filterall-code-alias-code-fa-code">2.8. Locating persons by all parameter: <code>filterall</code> (alias <code>fa</code>)</a></li>
 <li><a href="#deleting-a-person-code-delete-code-alias-code-del-code">2.9. Deleting a person : <code>delete</code> (alias <code>del</code>)</a></li>
 <li><a href="#selecting-a-person-code-select-code">2.10. Selecting a person : <code>select</code></a></li>
-<li><a href="#grouping-persons-code-group-code">2.11. Grouping persons : <code>group</code></a></li>
-<li><a href="#removing-from-groups-code-ungroup-code">2.12. Removing from groups : <code>ungroup</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">2.13. Listing entered commands : <code>history</code></a></li>
-<li><a href="#setting-up-appointment-code-appointment-code">2.14. Setting up appointment: <code>appointment</code></a></li>
-<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.15. Sending my contact detail to someone: <code>sharecontact</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">2.16. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.17. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.18. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
-<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.19. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
-<li><a href="#saving-the-data">2.20. Saving the data</a></li>
-<li><a href="#suggestions-as-you-type">2.21. Suggestions as you type</a></li>
-<li><a href="#autocomplete-commands">2.22. Autocomplete commands</a></li>
-<li><a href="#exporting-the-data-code-export-code">2.23. Exporting the data : <code>export</code></a></li>
-<li><a href="#importing-the-data-code-import-code">2.24. Importing the data : <code>import</code></a></li>
+<li><a href="#adding-an-appointment-code-appoint-code">2.11. Adding an appointment: <code>appoint</code></a></li>
+<li><a href="#grouping-persons-code-group-code">2.12. Grouping persons : <code>group</code></a></li>
+<li><a href="#removing-from-groups-code-ungroup-code">2.13. Removing from groups : <code>ungroup</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></li>
+<li><a href="#setting-up-appointment-code-appointment-code">2.15. Setting up appointment: <code>appointment</code></a></li>
+<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
+<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
+<li><a href="#saving-the-data">2.21. Saving the data</a></li>
+<li><a href="#suggestions-as-you-type">2.22. Suggestions as you type</a></li>
+<li><a href="#autocomplete-commands">2.23. Autocomplete commands</a></li>
+<li><a href="#exporting-the-data-code-export-code">2.24. Exporting the data : <code>export</code></a></li>
+<li><a href="#importing-the-data-code-import-code">2.25. Importing the data : <code>import</code></a></li>
 </ul>
 </li>
 <li><a href="#course-mode">3. Course mode</a></li>
@@ -578,7 +579,31 @@ Selects all persons currently displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grouping-persons-code-group-code"><a class="link" href="#grouping-persons-code-group-code">2.11. Grouping persons : <code>group</code></a></h3>
+<h3 id="adding-an-appointment-code-appoint-code"><a class="link" href="#adding-an-appointment-code-appoint-code">2.11. Adding an appointment: <code>appoint</code></a></h3>
+<div class="paragraph">
+<p>Since v1.3</p>
+</div>
+<div class="paragraph">
+<p>Add an appointment to a person in the addressbook.<br>
+Format: <code>appoint INDEX ap/date time duration</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the person already have an appointment, the new appointment will override the old one</p>
+</li>
+<li>
+<p>If ap/ is left blank, the old appointment will be deleted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="grouping-persons-code-group-code"><a class="link" href="#grouping-persons-code-group-code">2.12. Grouping persons : <code>group</code></a></h3>
 <div class="paragraph">
 <p>Since v1.2</p>
 </div>
@@ -623,7 +648,7 @@ Adds the 1st person from the results of the <code>find</code> command to the gro
 </div>
 </div>
 <div class="sect2">
-<h3 id="removing-from-groups-code-ungroup-code"><a class="link" href="#removing-from-groups-code-ungroup-code">2.12. Removing from groups : <code>ungroup</code></a></h3>
+<h3 id="removing-from-groups-code-ungroup-code"><a class="link" href="#removing-from-groups-code-ungroup-code">2.13. Removing from groups : <code>ungroup</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -676,7 +701,7 @@ Removes the 1st person from the results of the <code>find</code> command from th
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">2.13. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code> or <code>h</code></p>
@@ -709,7 +734,7 @@ Coming in v2.0
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-appointment-code-appointment-code"><a class="link" href="#setting-up-appointment-code-appointment-code">2.14. Setting up appointment: <code>appointment</code></a></h3>
+<h3 id="setting-up-appointment-code-appointment-code"><a class="link" href="#setting-up-appointment-code-appointment-code">2.15. Setting up appointment: <code>appointment</code></a></h3>
 <div class="paragraph">
 <p>Set up an appointment with a person indicated by INDEX from START TIME, lasting DURATION (minutes)
 and send them a reminder through email.
@@ -728,7 +753,7 @@ Format: <code>appointment INDEX START_TIME DURATION</code>, TIME is in ddmmyy HH
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.15. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
+<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
 <div class="paragraph">
 <p>Share my contact details to someone in the address book, indicated by INDEX.
 Format: <code>sharecontact INDEX</code></p>
@@ -746,7 +771,7 @@ Format: <code>sharecontact INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.16. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the Contact Pro to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -791,7 +816,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.17. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -823,41 +848,41 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.18. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
+<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code> or <code>clr</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.19. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
+<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code> or <code>q</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.20. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.21. Saving the data</a></h3>
 <div class="paragraph">
 <p>Contact Pro data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.21. Suggestions as you type</a></h3>
+<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.22. Suggestions as you type</a></h3>
 <div class="paragraph">
 <p>Commands and parameters will be suggested as you type, where applicable.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.22. Autocomplete commands</a></h3>
+<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.23. Autocomplete commands</a></h3>
 <div class="paragraph">
 <p>After you type first few characters, user can press TAB to autocomplete to the if there is a unique command starting<br>
 with those characters.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.23. Exporting the data : <code>export</code></a></h3>
+<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.24. Exporting the data : <code>export</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -887,7 +912,7 @@ Exports the data to the Documents folder and saves under a name 'exported'</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.24. Importing the data : <code>import</code></a></h3>
+<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.25. Importing the data : <code>import</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1031,7 +1056,7 @@ e.g. <code>import C:\Users\User\Documents\imported</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-25 13:31:39 +00:00
+Last updated 2017-10-25 14:43:00 +00:00
 </div>
 </div>
 </body>
