@@ -506,7 +506,7 @@ Format: <code>group INDEX gn/GROUP_NAME</code><br></p>
 <p>The index refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3&#8230;&#8203;</code></p>
+<p>The index <strong>must be a positive integer</strong> <code>1</code></p>
 </li>
 </ul>
 </div>
@@ -545,8 +545,8 @@ Coming in v2.0: ungroup
 </table>
 </div>
 <div class="paragraph">
-<p>Used to remove from a group person identified by the index used in the last person listing.<br>
-Format: <code>ungroup INDEX gn/GROUP_NAME</code><br></p>
+<p>Used to remove from groups persons identified by the indices used in the last person listing.<br>
+Format: <code>ungroup n/NAME INDEX&#8230;&#8203;</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -559,7 +559,7 @@ Format: <code>ungroup INDEX gn/GROUP_NAME</code><br></p>
 <p>The index refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3&#8230;&#8203;</code></p>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -912,8 +912,8 @@ e.g.: <code>select 2</code>, <code>select all</code><br>
 e.g.: <code>group 2 gn/Family</code></p>
 </li>
 <li>
-<p><strong>Ungroup</strong> : <code>ungroup INDEX gn/NAME</code><br>
-e.g.: <code>ungroup 2 gn/Family</code></p>
+<p><strong>Ungroup</strong> : <code>ungroup n/NAME INDEX&#8230;&#8203;</code><br>
+e.g.: <code>ungroup n/Family 2 3</code></p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code> (<code>h</code>)</p>
@@ -939,7 +939,7 @@ e.g. <code>import C:\Users\User\Documents\imported</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-25 13:20:47 +00:00
+Last updated 2017-10-25 13:19:50 +00:00
 </div>
 </div>
 </body>
