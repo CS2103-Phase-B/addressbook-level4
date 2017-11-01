@@ -41,17 +41,18 @@
 <li><a href="#grouping-persons-code-group-code">2.12. Grouping persons : <code>group</code></a></li>
 <li><a href="#removing-from-groups-code-ungroup-code">2.13. Removing from groups : <code>ungroup</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></li>
-<li><a href="#setting-up-appointment-code-appointment-code">2.15. Setting up appointment: <code>appointment</code></a></li>
-<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
-<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
-<li><a href="#saving-the-data">2.21. Saving the data</a></li>
-<li><a href="#suggestions-as-you-type">2.22. Suggestions as you type</a></li>
-<li><a href="#autocomplete-commands">2.23. Autocomplete commands</a></li>
-<li><a href="#exporting-the-data-code-export-code">2.24. Exporting the data : <code>export</code></a></li>
-<li><a href="#importing-the-data-code-import-code">2.25. Importing the data : <code>import</code></a></li>
+<li><a href="#changing-profile-picture-code-changepic-code-alias-pic">2.15. Changing profile picture : <code>changepic</code> (alias pic)</a></li>
+<li><a href="#setting-up-appointment-code-appointment-code">2.16. Setting up appointment: <code>appointment</code></a></li>
+<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.17. Sending my contact detail to someone: <code>sharecontact</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">2.18. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.19. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.20. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
+<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.21. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
+<li><a href="#exporting-the-data-code-export-code">2.22. Exporting the data : <code>export</code></a></li>
+<li><a href="#importing-the-data-code-import-code">2.23. Importing the data : <code>import</code></a></li>
+<li><a href="#saving-the-data">2.24. Saving the data</a></li>
+<li><a href="#suggestions-as-you-type">2.25. Suggestions as you type</a></li>
+<li><a href="#autocomplete-commands">2.26. Autocomplete commands</a></li>
 </ul>
 </li>
 <li><a href="#course-mode">3. Course mode</a></li>
@@ -183,14 +184,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0: Adding pictures, social media links, auto-capitalization
+TBI in v2.0: social media links, auto-capitalization
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> or <code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> or <code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -211,7 +212,7 @@ If you type full name in small letters, it will be auto-capitalized
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 pic/C:\Users\User\Documents\pic.jpg link/https://www.facebook.com/happy.potter</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 link/https://www.facebook.com/happy.potter</code></p>
 </li>
 <li>
 <p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
@@ -245,7 +246,7 @@ Coming in v2.0: Changing picture and social media links
 </div>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -734,7 +735,44 @@ Coming in v2.0
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-appointment-code-appointment-code"><a class="link" href="#setting-up-appointment-code-appointment-code">2.15. Setting up appointment: <code>appointment</code></a></h3>
+<h3 id="changing-profile-picture-code-changepic-code-alias-pic"><a class="link" href="#changing-profile-picture-code-changepic-code-alias-pic">2.15. Changing profile picture : <code>changepic</code> (alias pic)</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0: storing the pictures by the app
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Changes the profile picture of the person specified by the index<br>
+Format: <code>changepic INDEX p/PICTURE_PATH</code></p>
+</div>
+<div class="paragraph">
+<p>The picture has to be present on the drive of the computer in order to be displayed. If the picture cannot be found, <br>
+it is not shown.
+To choose default picture, type <code>default_pic.png</code> as a path.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>pic 2 p/C:\Users\User\Documents\mypic.jpg</code></p>
+</li>
+<li>
+<p><code>changepic 1 p/default_pic.png</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-up-appointment-code-appointment-code"><a class="link" href="#setting-up-appointment-code-appointment-code">2.16. Setting up appointment: <code>appointment</code></a></h3>
 <div class="paragraph">
 <p>Set up an appointment with a person indicated by INDEX from START TIME, lasting DURATION (minutes)
 and send them a reminder through email.
@@ -753,7 +791,7 @@ Format: <code>appointment INDEX START_TIME DURATION</code>, TIME is in ddmmyy HH
 </div>
 </div>
 <div class="sect2">
-<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
+<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.17. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
 <div class="paragraph">
 <p>Share my contact details to someone in the address book, indicated by INDEX.
 Format: <code>sharecontact INDEX</code></p>
@@ -771,7 +809,7 @@ Format: <code>sharecontact INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.18. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the Contact Pro to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -816,7 +854,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.19. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -848,41 +886,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
+<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.20. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code> or <code>clr</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
+<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.21. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code> or <code>q</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.21. Saving the data</a></h3>
-<div class="paragraph">
-<p>Contact Pro data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.22. Suggestions as you type</a></h3>
-<div class="paragraph">
-<p>Commands and parameters will be suggested as you type, where applicable.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.23. Autocomplete commands</a></h3>
-<div class="paragraph">
-<p>After you type first few characters, user can press TAB to autocomplete to the if there is a unique command starting<br>
-with those characters.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.24. Exporting the data : <code>export</code></a></h3>
+<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.22. Exporting the data : <code>export</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -890,7 +908,7 @@ with those characters.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0: command <code>export</code>
+TBI in v2.0: command <code>export</code>
 </td>
 </tr>
 </table>
@@ -912,7 +930,7 @@ Exports the data to the Documents folder and saves under a name 'exported'</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.25. Importing the data : <code>import</code></a></h3>
+<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.23. Importing the data : <code>import</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -920,7 +938,7 @@ Exports the data to the Documents folder and saves under a name 'exported'</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0: command <code>import</code>
+TBI in v2.0: command <code>import</code>
 </td>
 </tr>
 </table>
@@ -941,6 +959,26 @@ Imports the data from the Documents folder and saves them in the current Contact
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.24. Saving the data</a></h3>
+<div class="paragraph">
+<p>Contact Pro data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.25. Suggestions as you type</a></h3>
+<div class="paragraph">
+<p>Commands and parameters will be suggested as you type, where applicable.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.26. Autocomplete commands</a></h3>
+<div class="paragraph">
+<p>After you type first few characters, user can press TAB to autocomplete to the if there is a unique command starting<br>
+with those characters.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -956,7 +994,7 @@ Imports the data from the Documents folder and saves them in the current Contact
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0: Course mode
+TBI in v2.0: Course mode
 </td>
 </tr>
 </table>
@@ -982,7 +1020,7 @@ Coming in v2.0: Course mode
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0
+TBI in v2.0
 </td>
 </tr>
 </table>
@@ -992,71 +1030,44 @@ Coming in v2.0
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> (<code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague pic/C:\Users\User\Documents\mypic.jpg</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code> (<code>clr</code>)</p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code> (<code>del INDEX</code>) or <code>delete selected</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [pic/PICTUREPATH] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code> (<code>f KEYWORD [MORE_KEYWORDS]</code>)<br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code> (<code>ls</code>)</p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select</strong> : <code>select INDEX</code> (also <code>select me</code>)<br>
+<div class="paragraph">
+<p>TBI in v.2.0: links to social media<br>
+* <strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> (<code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code><br>
+* <strong>Clear</strong> : <code>clear</code> (<code>clr</code>)<br>
+* <strong>Delete</strong> : <code>delete INDEX</code> (<code>del INDEX</code>) or <code>delete selected</code><br>
+e.g. <code>delete 3</code><br>
+* <strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code><br>
+* <strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code> (<code>f KEYWORD [MORE_KEYWORDS]</code>)<br>
+e.g. <code>find James Jake</code><br>
+* <strong>List</strong> : <code>list</code> (<code>ls</code>)<br>
+* <strong>Help</strong> : <code>help</code><br>
+TBI in v2.0: 'select me'+
+* <strong>Select</strong> : <code>select INDEX</code> (also <code>select me</code>)<br>
 e.g.: <code>select 2</code>, <code>select all</code><br>
-<code>select me</code></p>
-</li>
-<li>
-<p><strong>Group</strong> : <code>group INDEX gn/GROUP_NAME</code><br>
-e.g.: <code>group 2 gn/Family</code></p>
-</li>
-<li>
-<p><strong>Ungroup</strong> : <code>ungroup INDEX gn/NAME</code><br>
-e.g.: <code>ungroup 2 gn/Family</code></p>
-</li>
-<li>
-<p><strong>History</strong> : <code>history</code> (<code>h</code>)</p>
-</li>
-<li>
-<p><strong>Undo</strong> : <code>undo</code></p>
-</li>
-<li>
-<p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Import</strong> : <code>import PATH</code><br>
-e.g. <code>import C:\Users\User\Documents\imported</code></p>
-</li>
-<li>
-<p><strong>Export</strong> : <code>export PATH</code><br>
-<code>export C:\Users\User\Documents\exported</code></p>
-</li>
-</ul>
+<code>select me</code><br>
+* <strong>Group</strong> : <code>group INDEX gn/GROUP_NAME</code><br>
+e.g.: <code>group 2 gn/Family</code><br>
+* <strong>Ungroup</strong> : <code>ungroup INDEX gn/NAME</code><br>
+e.g.: <code>ungroup 2 gn/Family</code><br>
+* <strong>History</strong> : <code>history</code> (<code>h</code>)<br>
+* <strong>Undo</strong> : <code>undo</code><br>
+* <strong>Redo</strong> : <code>redo</code><br>
+* <strong>Change Pic</strong> : <code>changepic INDEX p/PATH (pic INDEX p/PATH)</code><br>
+e.g.: <code>changepic 2 p/C:\Users\User\Documents\mypic.jpg</code><br>
+TBI in v2.0: import and export<br>
+* <strong>Import</strong> : <code>import PATH</code><br>
+e.g. <code>import C:\Users\User\Documents\imported</code><br>
+* <strong>Export</strong> : <code>export PATH</code><br>
+e.g. <code>export C:\Users\User\Documents\exported</code><br></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 13:27:18 +00:00
+Last updated 2017-11-01 13:44:58 +00:00
 </div>
 </div>
 </body>
