@@ -42,17 +42,16 @@
 <li><a href="#removing-from-groups-code-ungroup-code">2.13. Removing from groups : <code>ungroup</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">2.14. Listing entered commands : <code>history</code></a></li>
 <li><a href="#changing-profile-picture-code-changepic-code-alias-pic">2.15. Changing profile picture : <code>changepic</code> (alias pic)</a></li>
-<li><a href="#setting-up-appointment-code-appointment-code">2.16. Setting up appointment: <code>appointment</code></a></li>
-<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.17. Sending my contact detail to someone: <code>sharecontact</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">2.18. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.19. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.20. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
-<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.21. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
-<li><a href="#exporting-the-data-code-export-code">2.22. Exporting the data : <code>export</code></a></li>
-<li><a href="#importing-the-data-code-import-code">2.23. Importing the data : <code>import</code></a></li>
-<li><a href="#saving-the-data">2.24. Saving the data</a></li>
-<li><a href="#suggestions-as-you-type">2.25. Suggestions as you type</a></li>
-<li><a href="#autocomplete-commands">2.26. Autocomplete commands</a></li>
+<li><a href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></li>
+<li><a href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></li>
+<li><a href="#exporting-the-data-code-export-code">2.21. Exporting the data : <code>export</code></a></li>
+<li><a href="#importing-the-data-code-import-code">2.22. Importing the data : <code>import</code></a></li>
+<li><a href="#saving-the-data">2.23. Saving the data</a></li>
+<li><a href="#suggestions-as-you-type">2.24. Suggestions as you type</a></li>
+<li><a href="#autocomplete-commands">2.25. Autocomplete commands</a></li>
 </ul>
 </li>
 <li><a href="#course-mode">3. Course mode</a></li>
@@ -598,7 +597,8 @@ Selects all persons currently displayed.</p>
 </div>
 <div class="paragraph">
 <p>Add an appointment to a person in the addressbook.<br>
-Format: <code>appoint INDEX ap/date (dd/mm/yyyy) time (hh:mm) duration(minutes)</code><br></p>
+Format: <code>appoint INDEX ap/date (dd/mm/yyyy) time (hh:mm) duration(minutes)</code><br>
+Example: <code>appoint 1 ap/12/12/2020 15:12 60</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -733,18 +733,6 @@ Format: <code>history</code> or <code>h</code></p>
 </tr>
 </table>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Coming in v2.0
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="changing-profile-picture-code-changepic-code-alias-pic"><a class="link" href="#changing-profile-picture-code-changepic-code-alias-pic">2.15. Changing profile picture : <code>changepic</code> (alias pic)</a></h3>
@@ -784,26 +772,19 @@ To choose default picture, type <code>default_pic.png</code> as a path.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="setting-up-appointment-code-appointment-code"><a class="link" href="#setting-up-appointment-code-appointment-code">2.16. Setting up appointment: <code>appointment</code></a></h3>
-<div class="paragraph">
-<p>Set up an appointment with a person indicated by INDEX from START TIME, lasting DURATION (minutes)
-and send them a reminder through email.
-Format: <code>appointment INDEX START_TIME DURATION</code>, TIME is in ddmmyy HHMM</p>
+<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.16. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>appointment 1 121017 1200 60</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sending-my-contact-detail-to-someone-code-sharecontact-code"><a class="link" href="#sending-my-contact-detail-to-someone-code-sharecontact-code">2.17. Sending my contact detail to someone: <code>sharecontact</code></a></h3>
 <div class="paragraph">
 <p>Share my contact details to someone in the address book, indicated by INDEX.
 Format: <code>sharecontact INDEX</code></p>
@@ -821,7 +802,7 @@ Format: <code>sharecontact INDEX</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.18. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.17. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the Contact Pro to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -866,7 +847,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.19. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.18. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -898,21 +879,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.20. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
+<h3 id="clearing-all-entries-code-clear-code-alias-code-clr-code"><a class="link" href="#clearing-all-entries-code-clear-code-alias-code-clr-code">2.19. Clearing all entries : <code>clear</code> (alias <code>clr</code>)</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code> or <code>clr</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.21. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
+<h3 id="exiting-the-program-code-exit-code-alias-code-q-code"><a class="link" href="#exiting-the-program-code-exit-code-alias-code-q-code">2.20. Exiting the program : <code>exit</code> (alias <code>q</code>)</a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code> or <code>q</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.22. Exporting the data : <code>export</code></a></h3>
+<h3 id="exporting-the-data-code-export-code"><a class="link" href="#exporting-the-data-code-export-code">2.21. Exporting the data : <code>export</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -942,7 +923,7 @@ Exports the data to the Documents folder and saves under a name 'exported'</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.23. Importing the data : <code>import</code></a></h3>
+<h3 id="importing-the-data-code-import-code"><a class="link" href="#importing-the-data-code-import-code">2.22. Importing the data : <code>import</code></a></h3>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -972,20 +953,30 @@ Imports the data from the Documents folder and saves them in the current Contact
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.24. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>Contact Pro data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.25. Suggestions as you type</a></h3>
-<div class="paragraph">
-<p>Commands and parameters will be suggested as you type, where applicable.</p>
+<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">2.24. Suggestions as you type</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+Commands and parameters will be suggested as you type, where applicable.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.26. Autocomplete commands</a></h3>
+<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">2.25. Autocomplete commands</a></h3>
 <div class="paragraph">
 <p>After you type first few characters, user can press TAB to autocomplete to the if there is a unique command starting<br>
 with those characters.</p>
@@ -1066,6 +1057,8 @@ e.g.: <code>ungroup 2 gn/Family</code><br>
 * <strong>History</strong> : <code>history</code> (<code>h</code>)<br>
 * <strong>Undo</strong> : <code>undo</code><br>
 * <strong>Redo</strong> : <code>redo</code><br>
+* <strong>Appoint</strong> : <code>appoint INDEX ap/DATE TIME DURATION</code><br>
+e.g. <code>appoint 1 ap/12/12/2017 12:00 60</code>
 * <strong>Change Pic</strong> : <code>changepic INDEX p/PATH (pic INDEX p/PATH)</code><br>
 e.g.: <code>changepic 2 p/C:\Users\User\Documents\mypic.jpg</code><br>
 TBI in v2.0: import and export<br>
@@ -1079,7 +1072,7 @@ e.g. <code>export C:\Users\User\Documents\exported</code><br></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-04 03:33:03 +00:00
+Last updated 2017-11-04 06:36:38 +00:00
 </div>
 </div>
 </body>
