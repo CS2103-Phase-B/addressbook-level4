@@ -191,7 +191,7 @@ TBI in v2.0: social media links, auto-capitalization
 </div>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> or <code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS &#8230;&#8203; [t/TAG]&#8230;&#8203;</code> or <code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS &#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -212,7 +212,7 @@ If you type full name in small letters, it will be auto-capitalized
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 link/https://www.facebook.com/happy.potter</code></p>
+<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
 </li>
 <li>
 <p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
@@ -246,7 +246,7 @@ Coming in v2.0: Changing picture and social media links
 </div>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] &#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -471,6 +471,18 @@ Returns <code>Bernice Yu</code></p>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-person-code-delete-code-alias-code-del-code"><a class="link" href="#deleting-a-person-code-delete-code-alias-code-del-code">2.9. Deleting a person : <code>delete</code> (alias <code>del</code>)</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Coming in v2.0: deleting selected persons
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code> or <code>del INDEX</code> or <code>del selected</code></p>
@@ -529,7 +541,7 @@ Deletes all selected persons.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Coming in v2.0: <code>select me</code>
+Coming in v2.0: <code>select me</code>, <code>select all</code>
 </td>
 </tr>
 </table>
@@ -690,12 +702,12 @@ Format: <code>ungroup INDEX gn/GROUP_NAME</code><br></p>
 <ul>
 <li>
 <p><code>list</code><br>
-<code>ungroup n/CS2103 2 3</code><br>
+<code>ungroup gn/CS2103 2 3</code><br>
 Removes the 2nd and 3rd person from the group CS2103 in the address book.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
-<code>ungroup n/Family 1</code><br>
+<code>ungroup gn/Family 1</code><br>
 Removes the 1st person from the results of the <code>find</code> command from the group Family.</p>
 </li>
 </ul>
@@ -1032,7 +1044,7 @@ TBI in v2.0
 <div class="sectionbody">
 <div class="paragraph">
 <p>TBI in v.2.0: links to social media<br>
-* <strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code> (<code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [link/LINK]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
+* <strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS &#8230;&#8203; [t/TAG]&#8230;&#8203;</code> (<code>a n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS &#8230;&#8203; [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code><br>
 * <strong>Clear</strong> : <code>clear</code> (<code>clr</code>)<br>
 * <strong>Delete</strong> : <code>delete INDEX</code> (<code>del INDEX</code>) or <code>delete selected</code><br>
@@ -1043,7 +1055,7 @@ e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code><br>
 e.g. <code>find James Jake</code><br>
 * <strong>List</strong> : <code>list</code> (<code>ls</code>)<br>
 * <strong>Help</strong> : <code>help</code><br>
-TBI in v2.0: 'select me'+
+TBI in v2.0: 'select me', 'select all'<br>
 * <strong>Select</strong> : <code>select INDEX</code> (also <code>select me</code>)<br>
 e.g.: <code>select 2</code>, <code>select all</code><br>
 <code>select me</code><br>
@@ -1067,7 +1079,7 @@ e.g. <code>export C:\Users\User\Documents\exported</code><br></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-02 06:10:51 +00:00
+Last updated 2017-11-04 03:33:03 +00:00
 </div>
 </div>
 </body>
