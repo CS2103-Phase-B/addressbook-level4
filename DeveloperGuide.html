@@ -78,8 +78,7 @@
 <li><a href="#user-stories">Appendix A: User Stories</a></li>
 <li><a href="#use-cases">Appendix B: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix C: Non Functional Requirements</a></li>
-<li><a href="#ungroup">Appendix D: Ungroup</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
+<li><a href="#glossary">Appendix D: Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -782,35 +781,18 @@ Listing and group attributes TBI in v2.0</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="big-picture"><a class="link" href="#big-picture">3.2.2. Big picture</a></h4>
 <div class="paragraph">
-<p>Group class diagram (note that attributes, classes and methods not relevant for the groups are omitted):</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/GroupClassDiagram.png" alt="GroupClassDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>How grouping is executed, sequence diagram:</p>
+<p>Big picture. Note that AddressBook further updates the Person&#8217;s references to the groups.
+<code>filtered</code> denotes the Person extracted by applying the index filtering.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/GroupSequenceDiagram.png" alt="GroupSequenceDiagram" width="800">
 </div>
 </div>
-<div class="paragraph">
-<p>Note that AddressBook further updates the Person&#8217;s references to the groups.
-<code>filtered</code> denotes the Person extracted by applying the index filtering.<br></p>
-</div>
-<div class="paragraph">
-<p>See also the object diagrams showing the process of ungrouping: <a href="#Ungroup">Ungroup diagram</a> in appendix</p>
-</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Storing information about group members<br>
 <strong>Alternative 1 (current choice):</strong> Members store list of groups they belong to<br>
@@ -2006,29 +1988,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="ungroup"><a class="link" href="#ungroup">Appendix D: Ungroup</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Object diagram before performing <code>ungroup 1 gn/CS2103</code> (assuming Alice is the person with index 1).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UngroupObjectDiagramBefore.png" alt="UngroupObjectDiagramBefore" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>And after ungrouping. Note that the group <code>CS2103</code> is not kept by the AddressBook&#8217;s UniqueGroupList either, as there are no other
-persons linked to that group, so it is assumed to be obsolete.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UngroupObjectDiagramAfter.png" alt="UngroupObjectDiagramAfter" width="800">
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">Appendix D: Glossary</a></h2>
 <div class="sectionbody">
 <div id="mainstream-os" class="paragraph">
 <p>Mainstream OS</p>
@@ -2067,7 +2027,7 @@ persons linked to that group, so it is assumed to be obsolete.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-05 07:52:27 +00:00
+Last updated 2017-11-05 07:52:20 +00:00
 </div>
 </div>
 </body>
