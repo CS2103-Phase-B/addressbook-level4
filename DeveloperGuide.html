@@ -46,11 +46,12 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
 <li><a href="#grouping-mechanism">3.2. Grouping mechanism</a></li>
-<li><a href="#searching-mechanism">3.3. Searching mechanism</a></li>
-<li><a href="#find-tag">3.4. Find Tag</a></li>
-<li><a href="#filter-feature-implementation">3.5. Filter feature implementation</a></li>
-<li><a href="#logging">3.6. Logging</a></li>
-<li><a href="#configuration">3.7. Configuration</a></li>
+<li><a href="#profile-pictures">3.3. Profile Pictures</a></li>
+<li><a href="#searching-mechanism">3.4. Searching mechanism</a></li>
+<li><a href="#find-tag">3.5. Find Tag</a></li>
+<li><a href="#filter-feature-implementation">3.6. Filter feature implementation</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -78,7 +79,8 @@
 <li><a href="#user-stories">Appendix A: User Stories</a></li>
 <li><a href="#use-cases">Appendix B: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix C: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix D: Glossary</a></li>
+<li><a href="#ungroup">Appendix D: Ungroup</a></li>
+<li><a href="#glossary">Appendix E: Glossary</a></li>
 </ul>
 </div>
 </div>
@@ -776,23 +778,43 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>Groups have attributes (number of members)</p>
 </li>
 <li>
-<p>Groups can be listed together with their members<br>
-Listing and group attributes TBI in v2.0</p>
+<p>Groups can be listed together with their members<br></p>
+</li>
+<li>
+<p>Subgroups can be created<br>
+Listing, subgroups and group attributes TBI in v2.0</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="big-picture"><a class="link" href="#big-picture">3.2.2. Big picture</a></h4>
 <div class="paragraph">
-<p>Big picture. Note that AddressBook further updates the Person&#8217;s references to the groups.
-<code>filtered</code> denotes the Person extracted by applying the index filtering.</p>
+<p>Group class diagram (note that attributes, classes and methods not relevant for the groups are omitted):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GroupClassDiagram.png" alt="GroupClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>How grouping is executed, sequence diagram:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/GroupSequenceDiagram.png" alt="GroupSequenceDiagram" width="800">
 </div>
 </div>
+<div class="paragraph">
+<p>Note that AddressBook further updates the Person&#8217;s references to the groups.
+<code>filtered</code> denotes the Person extracted by applying the index filtering.<br></p>
+</div>
+<div class="paragraph">
+<p>See also the object diagrams showing the process of ungrouping: <a href="#Ungroup">Ungroup diagram</a> in appendix</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Storing information about group members<br>
 <strong>Alternative 1 (current choice):</strong> Members store list of groups they belong to<br>
@@ -818,13 +840,42 @@ Not intuitive to manage group by managing Person.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">3.3. Searching mechanism</a></h3>
+<h3 id="profile-pictures"><a class="link" href="#profile-pictures">3.3. Profile Pictures</a></h3>
+<div class="paragraph">
+<p>Profile pictures are meant to be stored by app (in v.1.5 by the user at his own discretion) and they are added to the app
+by specifying the correct path to the file. In case the picture cannot be accessed later, it is not displayed.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.1. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Place of picture storage<br>
+<strong>Alternative 1 (current choice):</strong> Pictures are stored by the app after a successful load<br>
+<strong>Pros:</strong> In case the user moves the pictures or the app to another device, pictures are not lost<br>
+<strong>Cons:</strong> Data may be duplicated on the user&#8217;s computer (stored both by the app and the user). Implementation harder. <br>
+<strong>Alternative 2:</strong> Pictures stored by the user<br>
+<strong>Pros:</strong> Easier to implement. Easier to understand<br>
+<strong>Cons:</strong> May cause unwanted behavior if user is unaware and moves the pictures from the original location</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Format of stored pictures<br>
+<strong>Alternative 1 (current choice):</strong> Pictures are stored in their original format<br>
+<strong>Pros:</strong> Easier to understand. User can access and modify the stored data easily<br>
+<strong>Cons:</strong> Differs from storage of the rest of the data<br>
+<strong>Alternative 2:</strong> Pictures are stored in the xml files, just like all the other data<br>
+<strong>Pros:</strong> Follows convention<br>
+<strong>Cons:</strong> Not possible for the user to access the stored data directly not using the app. Encoding and decoding needed</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">3.4. Searching mechanism</a></h3>
 <div class="paragraph">
 <p>Here, searching entails the autocomplete function, finding mechanism and suggesting mechanism.
 The search mechanism is done with user&#8217;s usability in mind and is fully implemented such that it is most intuitive to use for the users.</p>
 </div>
 <div class="sect3">
-<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">3.3.1. Autocomplete function</a></h4>
+<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">3.4.1. Autocomplete function</a></h4>
 <div class="paragraph">
 <p>The autocomplete function mimics the behaviour of familiar Unix-based command lines. The autocomplete function is managed by a class <code>AutocompleteManager</code>,
 whose function <code>attemptAutocomplete</code> searches for the string starting with the specified characters in the string array provided and will return the
@@ -832,7 +883,7 @@ string if a unique match is present.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">3.3.2. Finding mechanism</a></h4>
+<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">3.4.2. Finding mechanism</a></h4>
 <div class="paragraph">
 <p>The find function currently matches name in the address book if those name starts with the find keyword. Whenever the a find event is triggered, the address book
 will filter the address book based on the predicate provided, the mechanism of which is specified by <code>NameContainsKeywordsPredicate</code> class.
@@ -843,7 +894,7 @@ close matches. For example, 'Dve' will return 'Dave' or 'Dove'.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">3.3.3. Suggesting mechanism</a></h4>
+<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">3.4.3. Suggesting mechanism</a></h4>
 <div class="paragraph">
 <p>The suggestion mechanism will be a hybrid of the above two functionalities, in which suggestion, whether commands or a match string inside the addressbook
 will be shown as the user type commands. This has not been implemented but will be a UI-heavy component that anchor on the fuzzy search logic.</p>
@@ -851,7 +902,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-tag"><a class="link" href="#find-tag">3.4. Find Tag</a></h3>
+<h3 id="find-tag"><a class="link" href="#find-tag">3.5. Find Tag</a></h3>
 <div class="paragraph">
 <p>The <code>FindTagCommand</code> allows the user to locate persons in the addressbook by their tag instead of their names.</p>
 </div>
@@ -878,7 +929,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Searching for tags <br>
 <strong>Alternative 1 (current choice):</strong> Search through the <code>ReadOnlyPerson</code> class<br>
@@ -901,7 +952,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect3">
-<h4 id="future-improvements"><a class="link" href="#future-improvements">3.4.2. Future Improvements</a></h4>
+<h4 id="future-improvements"><a class="link" href="#future-improvements">3.5.2. Future Improvements</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -915,7 +966,7 @@ will be shown as the user type commands. This has not been implemented but will 
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-feature-implementation"><a class="link" href="#filter-feature-implementation">3.5. Filter feature implementation</a></h3>
+<h3 id="filter-feature-implementation"><a class="link" href="#filter-feature-implementation">3.6. Filter feature implementation</a></h3>
 <div class="paragraph">
 <p>The <code>FilterCommand</code> and <code>FilterAllCommand</code> serve very similar functions to the <code>FindCommand</code> and <code>FindTagCommand</code>.
 However, they differ in the way that they allow more flexcibility to the user in terms of filtering contacts
@@ -956,7 +1007,7 @@ because:</p>
 will output only contacts that match all keywords.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.1. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.6.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> how filter implementation is executed (AND logic vs OR logic)<br>
 <strong>Alternative 1 (<code>FilterCommand</code>):</strong> Utilising OR logic<br>
@@ -971,7 +1022,7 @@ will output only contacts that match all keywords.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -1009,7 +1060,7 @@ will output only contacts that match all keywords.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.7. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1988,7 +2039,29 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix D: Glossary</a></h2>
+<h2 id="ungroup"><a class="link" href="#ungroup">Appendix D: Ungroup</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object diagram before performing <code>ungroup 1 gn/CS2103</code> (assuming Alice is the person with index 1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UngroupObjectDiagramBefore.png" alt="UngroupObjectDiagramBefore" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>And after ungrouping. Note that the group <code>CS2103</code> is not kept by the AddressBook&#8217;s UniqueGroupList either, as there are no other
+persons linked to that group, so it is assumed to be obsolete.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UngroupObjectDiagramAfter.png" alt="UngroupObjectDiagramAfter" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
 <div id="mainstream-os" class="paragraph">
 <p>Mainstream OS</p>
@@ -2027,7 +2100,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-05 07:52:20 +00:00
+Last updated 2017-11-05 08:20:55 +00:00
 </div>
 </div>
 </body>
