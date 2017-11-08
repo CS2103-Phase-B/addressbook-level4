@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Vu Duc Nam - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Vu Duc Nam - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-contactpro"><a class="link" href="#project-contactpro">Project: ContactPro</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ContactPro - It is a Java application intended for students in order to facilitate contacts management and integrate it with the study-related information.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-T12-B1/main/blob/master/collated/main/namvd2709.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-T12-B1/main/blob/master/collated/test/namvd2709.md">Test code</a>]</p>
+</div>
+<div class="sect2">
+<h3 id="new-feature-adding-an-appointment"><a class="link" href="#new-feature-adding-an-appointment">New feature: Adding an appointment</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-appointment-code-appoint-code"><a class="link" href="#adding-an-appointment-code-appoint-code">Adding an appointment: <code>appoint</code></a></h3>
+<div class="paragraph">
+<p>Since v1.3</p>
+</div>
+<div class="paragraph">
+<p>Add an appointment to a person in the addressbook.<br>
+Format: <code>appoint INDEX ap/date (dd/mm/yyyy) time (hh:mm) duration(minutes)</code><br>
+Example: <code>appoint 1 ap/12/12/2020 15:12 60</code><br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the person already have an appointment, the new appointment will override the old one</p>
+</li>
+<li>
+<p>If ap/ is left blank, the old appointment will be deleted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>As a student, the target user of this application will have a lot of appointments for group work, dating, setting up<br>
+meetings and appointments with other students and professors. Hence the need to store appointment details.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="appointment"><a class="link" href="#appointment">Appointment</a></h3>
+<div class="paragraph">
+<p>Appointment is stored in a <code>UniqueAppointmentList</code>, which makes sure that the appointment is unique and does not clash with other<br>
+appointments.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Storing appointments<br>
+<strong>Alternative 1 (current choice):</strong> Storing appointment using an in-memory UniqueAppointmentList.<br>
+<strong>Pro:</strong> Does not take up space.<br>
+<strong>Cons:</strong> Might be slow if there is a huge number of appointments (which is unlikely for a student)<br>
+<strong>Alternative 2:</strong> Storing appointment using a separate XML file<br>
+<strong>Pro:</strong> Will be faster if theres many appointments<br>
+<strong>Cons:</strong> Harder to understand. Does not follow convention of other commands.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Number of appointments<br>
+<strong>Alternative 1 (current choice):</strong> Allows 1 appointment per contact.<br>
+<strong>Pro:</strong> Easier to manage (add, remove, overwrite, etc.)<br>
+<strong>Cons:</strong> Is limited in case user have multiple appointments with others.<br>
+<strong>Alternative 2:</strong> Allows multiple appointment per contact.<br>
+<strong>Pro:</strong> Catered to users with multiple appointments per contact.<br>
+<strong>Cons:</strong> Would be hard to view on address book person card, hard to manage.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-searching-mechanism-enhanced"><a class="link" href="#enhancement-added-searching-mechanism-enhanced">Enhancement Added: Searching mechanism enhanced</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-name-code-find-code-alias-code-f-code"><a class="link" href="#locating-persons-by-name-code-find-code-alias-code-f-code">Locating persons by name: <code>find</code> (alias <code>f</code>)</a></h3>
+<div class="paragraph">
+<p>Finds persons whose names starts with the given keywords.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Name will be matched from the start of the name. e.g <code>Han</code> will match to <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find John</code><br>
+Returns <code>john</code> and <code>John Doe</code></p>
+</li>
+<li>
+<p><code>find Betsy Tim John</code><br>
+Returns any person having names starting with <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+<li>
+<p><code>f Na</code><br>
+Returns <code>Nam</code> (if Nam is the only close match).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="suggestions-as-you-type"><a class="link" href="#suggestions-as-you-type">Suggestions as you type</a></h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+Commands and parameters will be suggested as you type, where applicable.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-commands"><a class="link" href="#autocomplete-commands">Autocomplete commands</a></h3>
+<div class="paragraph">
+<p>After you type first few characters, user can press TAB to autocomplete to the if there is a unique command starting<br>
+with those characters.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>Sometimes the user might not remember the full name of the person, or just for speed&#8217;s sake, now searching can be done
+by typing the start of the name. Also, autocomplete commands will make using faster.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="searching-mechanism"><a class="link" href="#searching-mechanism">Searching mechanism</a></h3>
+<div class="paragraph">
+<p>Here, searching entails the autocomplete function, finding mechanism and suggesting mechanism.
+The search mechanism is done with user&#8217;s usability in mind and is fully implemented such that it is most intuitive to use for the users.</p>
+</div>
+<div class="sect3">
+<h4 id="autocomplete-function"><a class="link" href="#autocomplete-function">Autocomplete function</a></h4>
+<div class="paragraph">
+<p>The autocomplete function mimics the behaviour of familiar Unix-based command lines. The autocomplete function is managed by a class <code>AutocompleteManager</code>,
+whose function <code>attemptAutocomplete</code> searches for the string starting with the specified characters in the string array provided and will return the
+string if a unique match is present.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-mechanism"><a class="link" href="#finding-mechanism">Finding mechanism</a></h4>
+<div class="paragraph">
+<p>The find function currently matches name in the address book if those name starts with the find keyword. Whenever the a find event is triggered, the address book
+will filter the address book based on the predicate provided, the mechanism of which is specified by <code>NameContainsKeywordsPredicate</code> class.
+This class overrides the <code>test</code> function to filter the list based on <code>containsWordsStartWithString</code>, a <code>StringUtil</code> method which returns whether
+a string starts with another string. For example, 'Dav' will return 'Dave'<br>
+Looking forward, the finding mechanism will be more flexible, by implementing fuzzy search mechanism which allows returning
+close matches. For example, 'Dve' will return 'Dave' or 'Dove'.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="suggesting-mechanism"><a class="link" href="#suggesting-mechanism">Suggesting mechanism</a></h4>
+<div class="paragraph">
+<p>The suggestion mechanism will be a hybrid of the above two functionalities, in which suggestion, whether commands or a match string inside the addressbook
+will be shown as the user type commands. This has not been implemented but will be a UI-heavy component that anchor on the fuzzy search logic.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Written all use cases (<a href="https://github.com/CS2103AUG2017-T12-B1/main/pull/5">PR</a>)</p>
+</li>
+<li>
+<p>Found bugs in F09-B3 project.<br>
+Add command not working, error message not showing. <a href="https://github.com/CS2103AUG2017-F09-B3/main/issues/99">Issues</a></p>
+</li>
+<li>
+<p>Suggests improvements to F09-B3 project.<br>
+More meaningful error message. <a href="https://github.com/CS2103AUG2017-F09-B3/main/issues/102">Issues</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-08 16:00:30 +00:00
+</div>
+</div>
+</body>
+</html>
