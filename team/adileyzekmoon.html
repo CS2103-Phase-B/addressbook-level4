@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Adil Azmoon - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Adil Azmoon - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-contactpro"><a class="link" href="#project-contactpro">Project: ContactPro</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ContactPro - It is a Java application intended for students in order to facilitate contacts management and integrate it with the study-related information.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-T12-B1/main/blob/master/collated/main/adileyzekmoon.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-T12-B1/main/blob/master/collated/test/adileyzekmoon.md">Test code</a>]</p>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-filter-filterall"><a class="link" href="#enhancement-added-filter-filterall">Enhancement Added: Filter/FilterAll</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-any-parameter-code-filter-code-alias-code-fi-code"><a class="link" href="#locating-persons-by-any-parameter-code-filter-code-alias-code-fi-code">Locating persons by any parameter: <code>filter</code> (alias <code>fi</code>)</a></h3>
+<div class="paragraph">
+<p>Finds persons who has parameters that matches the given keyword.<br>
+Format: <code>filter KEYWORD [MORE_KEYWORDS]</code> or <code>fi KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Alex CS2103 Groupmate</code> will match <code>Groupmate CS2103 Alex</code></p>
+</li>
+<li>
+<p>All parameters are searched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter friends</code><br>
+Returns <code>Alex Yeoh</code> and <code>Bernice Yu</code></p>
+</li>
+<li>
+<p><code>filter colleagues</code><br>
+Returns <code>Bernice Yu</code> and <code>Roy Balakrishnan</code></p>
+</li>
+<li>
+<p><code>fi alex Colleagues</code><br>
+Returns <code>Alex Yeoh</code>, <code>Bernice Yu</code> and <code>Roy Balakrishnan</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-all-parameter-code-filterall-code-alias-code-fa-code"><a class="link" href="#locating-persons-by-all-parameter-code-filterall-code-alias-code-fa-code">Locating persons by all parameter: <code>filterall</code> (alias <code>fa</code>)</a></h3>
+<div class="paragraph">
+<p>Finds persons who has parameters that matches the given keyword.<br>
+Format: <code>filterall KEYWORD [MORE_KEYWORDS]</code> or <code>fa KEYWORD [MORE_KEYWORDS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Alex CS2103 Groupmate</code> will match <code>Groupmate CS2103 Alex</code></p>
+</li>
+<li>
+<p>All parameters are searched.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filterall friends</code><br>
+Returns <code>Alex Yeoh</code> and <code>Bernice Yu</code></p>
+</li>
+<li>
+<p><code>filterall colleagues</code><br>
+Returns <code>Bernice Yu</code> and <code>Roy Balakrishnan</code></p>
+</li>
+<li>
+<p><code>fa Bernice Colleagues</code><br>
+Returns <code>Bernice Yu</code></p>
+</li>
+<li>
+<p><code>fa colleagues friends</code><br>
+Returns <code>Bernice Yu</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>The user will be able to search for specific contacts or a range of contacts easily.<br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-feature-implementation"><a class="link" href="#filter-feature-implementation">Filter feature implementation</a></h3>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> and <code>FilterAllCommand</code> serve very similar functions to the <code>FindCommand</code> and <code>FindTagCommand</code>.
+However, they differ in the way that they allow more flexcibility to the user in terms of filtering contacts
+because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All parameters are included in the seraching implementation</p>
+</li>
+<li>
+<p>Users are able to utilise OR or AND logic to make the searcha s narrow or wide as desired.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This eliminatest the drawbacks of previous <code>FindCommand</code> and <code>FindTagCommand</code> implementations.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Sequence diagram can be inferred from <code>FindTagCommand</code> sequence diagram above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterCommand.png" alt="FilterCommand" width="800">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterAllDiagram.png" alt="FilterAllDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>AS shown above, <code>FilterCommand</code> will output a list of contacts that match any of the given keywords, while <code>FilterAllCommand</code>
+will output only contacts that match all keywords.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> how filter implementation is executed (AND logic vs OR logic)<br>
+<strong>Alternative 1 (<code>FilterCommand</code>):</strong> Utilising OR logic<br>
+<strong>Pros:</strong> More flexible usage allows user to view contacts across various parameters ,<br>
+          user does not have to utilise more than 1 command to view various contacts.<br>
+          user is able to searcha wide array of contacts with one command
+<strong>Cons:</strong> Looking for specific contacts by using more than one keyword is not possible.<br>
+<strong>Alternative 2 (<code>FilterAllCommand</code>):</strong> Utilising AND logic <br>
+<strong>Pros:</strong> Allows finding of specific contacts with more than 1 tag.<br>
+<strong>Cons:</strong> Limits flexibility for power users that wish to view various contacts across more than 1 tag.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-social-media-facebook"><a class="link" href="#enhancement-added-social-media-facebook">Enhancement Added: Social Media (Facebook)</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: User Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="social-media-link"><a class="link" href="#social-media-link">Social Media link</a></h3>
+<div class="paragraph">
+<p>Selecting a contact brings you directly to a list of Facebook profiles that match his/her name.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>The user wants to visit his contacts' social media pages easily.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="social-media-link-facebook"><a class="link" href="#social-media-link-facebook">Social Media link (Facebook)</a></h3>
+<div class="paragraph">
+<p>The <code>BrowserPanel</code> java file has been enhanced to display a Facebook user search of the selected contact&#8217;s name rather<br>
+than a Google search.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The search includes the full name of the contact.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How the Facebook webpage is loaded <br>
+<strong>Alternative 1 (current choice):</strong> Utilising a Facebook user search<br>
+<strong>Pros:</strong> Little chance of loading a wrong page, as the user is able to select the proper profile<br>
+          page from a list of closest matches.
+<strong>Cons:</strong> Will have to go throught the extra steps of locating and selecting a profile page<br>
+<strong>Alternative 2 :</strong> Loading a Facebook profile page that matches the selected contact&#8217;s name <br>
+<strong>Pros:</strong> Direct access to the selected contact&#8217;s profile page for easy use.<br>
+<strong>Cons:</strong> Extremely likely to load the wrong profile page, due to overlapping names of millions of Facebook accounts.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-lighttheme-incomplete-theme-switcher"><a class="link" href="#enhancement-added-lighttheme-incomplete-theme-switcher">Enhancement Added: LightTheme (Incomplete Theme Switcher)</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<hr>
+<div class="paragraph">
+<p>Currently Contact Pro is default loaded using a LightTheme that contrasts the DarkTheme given.<br>
+It is supposed to be utilised in a theme switcher that is currently incomplete.</p>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>A theme switcher with contrasting light and dark themes is convenient for users who do not want to strain their eyes<br>
+or prefer a certain theme over the other.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Found bugs in W14-B4 project.
+[addE] no number of days or arrow <a href="https://github.com/CS2103AUG2017-W14-B4/main/issues/111" class="bare">https://github.com/CS2103AUG2017-W14-B4/main/issues/111</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-08 17:39:49 +00:00
+</div>
+</div>
+</body>
+</html>
