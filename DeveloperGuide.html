@@ -906,8 +906,13 @@ will be shown as the user type commands. This has not been implemented but will 
 <div class="sect2">
 <h3 id="appointment"><a class="link" href="#appointment">3.5. Appointment</a></h3>
 <div class="paragraph">
-<p>Appointment is stored in a <code>UniqueAppointmentList</code>, which makes sure that the appointment is unique and does not clash with other<br>
+<p>Appointment is stored in a <code>UniqueAppointmentList</code>, which makes sure that the appointment is unique and does not clash with other
 appointments.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AppointmentSequenceDiagram.png" alt="AppointmentSequenceDiagram" width="800">
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.1. Design Considerations</a></h4>
@@ -929,6 +934,26 @@ appointments.</p>
 <strong>Alternative 2:</strong> Allows multiple appointment per contact.<br>
 <strong>Pro:</strong> Catered to users with multiple appointments per contact.<br>
 <strong>Cons:</strong> Would be hard to view on address book person card, hard to manage.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Appointment reminder<br>
+<strong>Alternative 1 (current choice):</strong> Only reminds if appointment is added from another session.<br>
+<strong>Pro:</strong> Does not spam user with appointments which he just added.<br>
+<strong>Cons:</strong> The user might add a lot of appointments in one session which he might forget.<br>
+<strong>Alternative 2:</strong> Reminds regardless of when appointment is added.<br>
+<strong>Pro:</strong> Helps forgetful users.<br>
+<strong>Cons:</strong> Most people will not need this.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Appointment removal<br>
+<strong>Alternative 1 (current choice):</strong> Appointments need to be manually removed after expiry.<br>
+<strong>Pro:</strong> User has full control and will not miss out any appointments in the past.<br>
+<strong>Cons:</strong> Appointment reminder still work until manually removed.<br>
+<strong>Alternative 2:</strong> Appointments automatically removed after expiry.<br>
+<strong>Pro:</strong> No more reminders for expired appointments.<br>
+<strong>Cons:</strong> Users might forget to attend appointment, so reminder even after expiry can help.</p>
 </div>
 </div>
 </div>
@@ -1777,6 +1802,18 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 <h3 id="use-case-import-persons" class="discrete">Use case: Import persons</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1847,9 +1884,6 @@ b. Require developers to download those libraries manually (this creates extra w
 <ol class="arabic">
 <li>
 <p>User adds an appointment to a contact through specifying the index.</p>
-</li>
-<li>
-<p>AddressBook sends an email to that contact.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1887,22 +1921,21 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 </li>
-<li>
-<p>2a. The email address is not correct and the email can&#8217;t be delivered.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a1. AddressBook notifies the user.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 <h3 id="use-case-gradebook" class="discrete">Use case: Gradebook</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -1955,6 +1988,18 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 <h3 id="use-case-exam-list" class="discrete">Use case: Exam List</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2004,6 +2049,18 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 <h3 id="use-case-weekly-schedule" class="discrete">Use case: Weekly Schedule</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TBI in v2.0
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2158,7 +2215,7 @@ persons linked to that group, so it is assumed to be obsolete.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-12 11:17:13 +00:00
+Last updated 2017-11-12 11:35:50 +00:00
 </div>
 </div>
 </body>
