@@ -81,18 +81,6 @@ Adds the 1st person from the results of the <code>find</code> command to the gro
 </div>
 <div class="sect2">
 <h3 id="removing-from-groups-code-ungroup-code"><a class="link" href="#removing-from-groups-code-ungroup-code">Removing from groups : <code>ungroup</code></a></h3>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Coming in v2.0: ungroup
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>Used to remove from a group person identified by the index used in the last person listing.<br>
 Format: <code>ungroup INDEX gn/GROUP_NAME</code><br></p>
@@ -252,12 +240,34 @@ Listing, subgroups and group attributes TBI in v2.0</p>
 <strong>Cons:</strong> Adds another attribute to a Person increasing its complexity.
 Not intuitive to manage group by managing Person.</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ungroup"><a class="link" href="#ungroup">Ungroup</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Object diagram before performing <code>ungroup 1 gn/CS2103</code> (assuming Alice is the person with index 1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UngroupObjectDiagramBefore.png" alt="UngroupObjectDiagramBefore" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>And after ungrouping. Note that the group <code>CS2103</code> is not kept by the AddressBook&#8217;s UniqueGroupList either, as there are no other
+persons linked to that group, so it is assumed to be obsolete.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UngroupObjectDiagramAfter.png" alt="UngroupObjectDiagramAfter" width="800">
+</div>
+</div>
 <div class="paragraph">
 <p><mark>End of Extract</mark></p>
 </div>
 <hr>
-</div>
-</div>
 <div class="sect2">
 <h3 id="enhancement-added-profile-picture"><a class="link" href="#enhancement-added-profile-picture">Enhancement Added: Profile picture</a></h3>
 <div class="sect3">
@@ -428,7 +438,7 @@ Multiple User Guide discrepancies regarding <a href="https://github.com/CS2103AU
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 02:22:02 +00:00
+Last updated 2017-11-12 10:40:19 +00:00
 </div>
 </div>
 </body>
